@@ -11,15 +11,15 @@ namespace ValiantKnight
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-
+        Texture2D tempBackground;
         Player player;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
-            graphics.PreferredBackBufferHeight = 300;
-            graphics.PreferredBackBufferWidth = 600;
+            graphics.PreferredBackBufferHeight = 256;
+            graphics.PreferredBackBufferWidth = 512;
             
         }
 
@@ -32,7 +32,8 @@ namespace ValiantKnight
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            player = new Player(new Vector2(0, GraphicsDevice.Viewport.Height - 63));
+            player = new Player(new Vector2(0, GraphicsDevice.Viewport.Height - 120));
+       
             base.Initialize();
         }
 
@@ -45,6 +46,7 @@ namespace ValiantKnight
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             player.LoadTextures(Content.Load<Texture2D>("knight"));
+            tempBackground = Content.Load<Texture2D>("village02full");
             // TODO: use this.Content to load your game content here
         }
 
@@ -82,6 +84,7 @@ namespace ValiantKnight
 
             // TODO: Add your drawing code here
             spriteBatch.Begin();
+            spriteBatch.Draw(tempBackground, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height),Color.White);
             player.Draw(spriteBatch, gameTime);
             spriteBatch.End();
 

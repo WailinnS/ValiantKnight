@@ -21,6 +21,7 @@ namespace ValiantKnight
         protected Dictionary<T, SpriteSheetInfo> AnimationFrames { get; set; }
         
         
+        
         protected TimeSpan UpdateTime { get; set; }
         protected TimeSpan ElapsedTime { get; set; }
 
@@ -32,7 +33,7 @@ namespace ValiantKnight
         protected Vector2 Position { get; set; }
 
         protected SpriteEffects Effect { get; set; }
-
+       
 
         /// <summary>
         /// Used to Draw the animation
